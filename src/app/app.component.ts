@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pf-final-sepulveda';
+  title = 'afterclass-6-modulos-apuntes';
 }
