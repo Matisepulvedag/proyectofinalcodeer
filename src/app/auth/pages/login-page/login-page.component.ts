@@ -12,7 +12,7 @@ export class LoginPageComponent implements OnDestroy {
   public loading = false
   public form = new FormGroup({
     email: new FormControl('michael.lawson@reqres.in', [Validators.required]),
-    password: new FormControl('cityslicka', [Validators.required]),
+    password: new FormControl('michael.lawsona', [Validators.required]),
   })
   private destroyed$ = new Subject();
 

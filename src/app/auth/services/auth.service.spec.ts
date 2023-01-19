@@ -53,8 +53,8 @@ fdescribe('AuthService', () => {
       data: {
         id: 7,
         email: 'michael.lawson@reqres.in',
-        first_name: 'Michael',
-        last_name: 'Lawson',
+        first_name: 'michael',
+        last_name: 'lawson',
         avatar: 'https://reqres.in/img/faces/7-image.jpg'
       },
       support: {
