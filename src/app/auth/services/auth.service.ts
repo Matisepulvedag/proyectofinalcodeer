@@ -39,7 +39,7 @@ export class AuthService {
               data.avatar
             )
         ),
-        tap((user) => this.sessionService.setUser(user))
+       /*  tap((user) => this.sessionService.setUser(user)) */
       );
   }
 
@@ -57,10 +57,10 @@ export class AuthService {
         tap((token) => {
           if (!token) throw new Error('Token invalido')
         }),
-        mergeMap((token) => 
+        mergeMap((token) =>
           this.httpClient.get<SingleUserResponse>(`${this.apiUrl}/users/7`)
         ),
-        tap(({ data }) => 
+        tap(({ data }) =>
           this.sessionService.setUser(
             new User(
               data.id,
