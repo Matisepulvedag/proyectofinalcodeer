@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Courses } from '../../../../core/models/course.model';
+import { Course } from '../../../../core/models/course.model';
 import { Observable, Subject } from 'rxjs';
 import { CourseModalComponent } from '../../course-modal/course-modal.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,7 +13,7 @@ import { CoursesService } from '../../../students/services/course.service';
 export class CoursesPageComponent {
 
   displayedColumns = ['id', 'firstName', 'lastName', 'active', 'delete', 'edit', 'viewDetail'];
-  Course: Observable<Courses[]> | undefined;
+  Course: Observable<Course[]> | undefined;
    private destroyed$ = new Subject()
 
    constructor(private readonly CoursesService: CoursesService, private readonly dialogService: MatDialog) {
@@ -24,7 +24,7 @@ export class CoursesPageComponent {
      this.destroyed$.next(true)
    }
 
-   editCourse(element: Courses) {
+   editCourse(element: Course) {
      const dialog = this.dialogService.open(CoursesPageComponent, {
        data: element
      })
@@ -44,7 +44,7 @@ export class CoursesPageComponent {
      })
    }
 
-   deleteCourse(element: Courses) {
+   deleteCourse(element: Course) {
      this.CoursesService.removeCourse(element.id);
    }
  }

@@ -2,7 +2,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Courses } from 'src/app/core/models/course.model';
+import { Course } from 'src/app/core/models/course.model';
 
 @Component({
   selector: 'app-course-modal',
@@ -19,7 +19,7 @@ export class CourseModalComponent {
 
   constructor(
     private readonly dialogRef: DialogRef,
-    @Inject(MAT_DIALOG_DATA) public data: Courses| undefined,
+    @Inject(MAT_DIALOG_DATA) public data: Course| undefined,
   ) {
     if (data) {
       this.courseForm.patchValue(data);
