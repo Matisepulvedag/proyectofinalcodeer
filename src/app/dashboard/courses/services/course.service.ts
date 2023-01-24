@@ -8,10 +8,10 @@ import { BehaviorSubject, Observable, map, take } from 'rxjs';
 export class CoursesService {
 
  private Courses= new BehaviorSubject<Course[]>([
-    new Course(1, 'matias', 'Sepulveda', true),
-    new Course(2, 'goku', 'Kakaroto', false),
-    new Course(3, 'chavo', 'del 8', true),
-    new Course(4, 'vegeta', 'Insecto', false),
+    new Course (1,'matias sepulveda','cuarto medio A', true),
+    new Course (2,'eduardo sepulveda','Primero medio B', true),
+    new Course (3,'juan perez','segundo B',true),
+    new Course (4,'arturo vidal','Tercero A', false)
   ]);
   public Course$: Observable<Course[]>;
   constructor() {
@@ -24,7 +24,7 @@ export class CoursesService {
       this.Courses.next([
         ...Course,
 
-        /* new Course(lastId + 1, newCourseData.firstName, newCourseData.lastName, true) */
+        /*  new Course(lastId + 1, newCourseData.firstName, newCourseData.lastName, true) */
       ])
     })
   }
@@ -37,8 +37,8 @@ export class CoursesService {
             ? new Course(
               cou.id,
               data.firstName || cou.firstName,
-              data.lastName || cou.lastName,
-              data.active || cou.active,
+              data.Curso || cou.Curso,
+              data.passedp || cou.passedp,
             )
             : cou
         )

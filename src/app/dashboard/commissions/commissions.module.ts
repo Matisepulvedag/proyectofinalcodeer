@@ -6,13 +6,15 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommisionModalComponent } from './components/commision-modal/commision-modal.component';
+import { CommisionDetailPageComponent } from './pages/commision-detail-page/commision-detail-page.component';
 
 
 
 @NgModule({
   declarations: [
     CommissionsPageComponent,
-    CommisionModalComponent
+    CommisionModalComponent,
+    CommisionDetailPageComponent
   ],
   imports: [
     CommonModule,

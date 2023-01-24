@@ -11,10 +11,11 @@ import { Course } from 'src/app/core/models/course.model';
 })
 export class CourseModalComponent {
   firstNameControl = new FormControl('', [Validators.required])
-  lastNameControl = new FormControl('', [Validators.required, Validators.email])
+  cursoNameControl = new FormControl('', [Validators.required])
+
   courseForm = new FormGroup({
     firstName: this.firstNameControl,
-    lastName: this.lastNameControl,
+    cursoName: this.cursoNameControl,
   });
 
   constructor(

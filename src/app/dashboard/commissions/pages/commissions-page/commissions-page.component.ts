@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, Subject } from 'rxjs';
 import { Commision } from 'src/app/core/models/commision.model';
-import { commisionService } from '../../../students/services/commision.service';
+import { commisionService } from '../../services/commision.service';
 import { CommisionModalComponent } from '../../components/commision-modal/commision-modal.component';
 
 @Component({
@@ -24,7 +24,7 @@ export class CommissionsPageComponent {
   }
 
   editCommision(element: Commision) {
-    const dialog = this.dialogService.open(CommissionsPageComponent, {
+    const dialog = this.dialogService.open(CommisionModalComponent, {
       data: element
     })
     dialog.afterClosed().subscribe((data) => {

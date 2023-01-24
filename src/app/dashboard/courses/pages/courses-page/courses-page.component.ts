@@ -3,7 +3,7 @@ import { Course } from '../../../../core/models/course.model';
 import { Observable, Subject } from 'rxjs';
 import { CourseModalComponent } from '../../course-modal/course-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import { CoursesService } from '../../../students/services/course.service';
+import { CoursesService } from '../../services/course.service';
 
 @Component({
   selector: 'app-courses-page',
@@ -12,7 +12,7 @@ import { CoursesService } from '../../../students/services/course.service';
 })
 export class CoursesPageComponent {
 
-  displayedColumns = ['id', 'firstName', 'lastName', 'active', 'delete', 'edit', 'viewDetail'];
+  displayedColumns = ['id', 'firstName', 'Curso', 'passedp', 'delete', 'edit', 'viewDetail'];
   Course: Observable<Course[]> | undefined;
    private destroyed$ = new Subject()
 
@@ -25,7 +25,7 @@ export class CoursesPageComponent {
    }
 
    editCourse(element: Course) {
-     const dialog = this.dialogService.open(CoursesPageComponent, {
+     const dialog = this.dialogService.open(CourseModalComponent, {
        data: element
      })
      dialog.afterClosed().subscribe((data) => {
@@ -39,7 +39,7 @@ export class CoursesPageComponent {
      const dialog = this.dialogService.open(CourseModalComponent)
      dialog.afterClosed().subscribe((data) => {
        if (data) {
-         this.CoursesService.createCourse({ firstName: data.firstName, lastName: data.lastName });
+         this.CoursesService.createCourse({  firstName: data.firstName, Curso: data.Curso,passedp: false });
        }
      })
    }
