@@ -6,36 +6,36 @@ import { Commision } from 'src/app/core/models/commision.model';
   providedIn: 'root'
 })
 export class commisionService {
-  private Commision = new BehaviorSubject<Commision[]>([
-    new Commision(1, 'matias', 'Sepulveda', true),
-    new Commision(2, 'goku', 'Kakaroto', false),
-    new Commision(3, 'chavo', 'del 8', true),
-    new Commision(4, 'vegeta', 'Insecto', false),
+  private Commisions = new BehaviorSubject<Commision[]>([
+    new Commision (1,'matias sepulveda','Angular', true),
+    new Commision (2,'eduardo sepulveda','Fullstack', true),
+    new Commision (3,'juan perez','Python',true),
+    new Commision (4,'arturo vidal','React Js', false)
   ]);
   public Commision$: Observable<Commision[]>;
   constructor() {
-    this.Commision$ = this.Commision.asObservable()
+    this.Commision$ = this.Commisions.asObservable()
   }
 
   createCommision(newCommisionData: Omit<Commision, 'id' | 'active'>): void {
-    this.Commision.pipe(take(1)).subscribe((Commisions) => {
+    this.Commisions.pipe(take(1)).subscribe((Commisions) => {
       const lastId = Commisions[Commisions.length - 1]?.id || 0;
-      this.Commision.next([
+      this.Commisions.next([
         ...Commisions,
-        new Commision(lastId + 1, newCommisionData.firstName, newCommisionData.lastName, true)
+        new Commision(lastId + 1, newCommisionData.firstName, newCommisionData.matter, true)
       ])
     })
   }
 
   editCommision(id: number, data: Partial<Commision>): void {
-    this.Commision.pipe(take(1)).subscribe((commision) => {
-      this.Commision.next(
-        Commision.map(
+    this.Commisions.pipe(take(1)).subscribe((commisions) => {
+      this.Commisions.next(
+        commisions.map(
           (com) => com.id === id
             ? new Commision(
               com.id,
               data.firstName || com.firstName,
-              data.lastName || com.lastName,
+              data.matter || com.matter,
               data.active || com.active,
             )
             : com
@@ -45,8 +45,8 @@ export class commisionService {
   }
 
   removeCommision(id: number): void {
-    this.Commision.pipe(take(1)).subscribe((Commision) => {
-      this.Commision.next(Commision.filter((com) => com.id !== id))
+    this.Commisions.pipe(take(1)).subscribe((Commision) => {
+      this.Commisions.next(Commision.filter((com) => com.id !== id))
     })
   }
 

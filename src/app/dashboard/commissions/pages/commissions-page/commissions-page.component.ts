@@ -11,7 +11,7 @@ import { CommisionModalComponent } from '../../components/commision-modal/commis
   styleUrls: ['./commissions-page.component.scss']
 })
 export class CommissionsPageComponent {
-  displayedColumns = ['id', 'firstName', 'lastName', 'active', 'delete', 'edit', 'viewDetail'];
+  displayedColumns = ['id', 'firstName', 'matter', 'active', 'delete', 'edit', 'viewDetail'];
  commision: Observable<Commision[]>;
   private destroyed$ = new Subject()
 
@@ -38,7 +38,7 @@ export class CommissionsPageComponent {
     const dialog = this.dialogService.open(CommisionModalComponent)
     dialog.afterClosed().subscribe((data) => {
       if (data) {
-        this.commisionService.createCommision({ firstName: data.firstName, lastName: data.lastName });
+        this.commisionService.createCommision({ firstName: data.firstName, matter: data.matter});
       }
     })
   }

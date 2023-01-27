@@ -7,38 +7,39 @@ import { BehaviorSubject, Observable, map, take } from 'rxjs';
 })
 export class CoursesService {
 
- private Courses= new BehaviorSubject<Course[]>([
-    new Course (1,'matias sepulveda','cuarto medio A', true),
-    new Course (2,'eduardo sepulveda','Primero medio B', true),
-    new Course (3,'juan perez','segundo B',true),
-    new Course (4,'arturo vidal','Tercero A', false)
+ private courses= new BehaviorSubject<Course[]>([
+    new Course (1,'matias sepulveda','Angular', true),
+    new Course (2,'eduardo sepulveda','Diseño UX', true),
+    new Course (3,'juan perez','React',true),
+    new Course (4,'arturo vidal','Android', false)
   ]);
-  public Course$: Observable<Course[]>;
+  public course$: Observable<Course[]>;
   constructor() {
-    this.Course$ = this.Courses.asObservable()
+    this.course$ = this.courses.asObservable()
   }
 
   createCourse(newCourseData: Omit<Course, 'id' | 'active'>): void {
-    this.Courses.pipe(take(1)).subscribe((Course) => {
-      const lastId = Course[Course.length - 1]?.id || 0;
-      this.Courses.next([
-        ...Course,
+    this.courses.pipe(take(1)).subscribe((courses) => {
+      const lastId = courses[courses.length - 1]?.id || 0;
+      this.courses.next([
+        ...courses,
 
-        /*  new Course(lastId + 1, newCourseData.firstName, newCourseData.lastName, true) */
+        new Course(lastId + 1,  newCourseData.firstName,newCourseData.Curso, true)
       ])
     })
   }
 
-  editCourse(id: number, data: Partial<Course>): void {
-    this.Courses.pipe(take(1)).subscribe((Courses) => {
-      this.Courses.next(
-        Courses.map(
+  EditCourse(id: number, data: Partial<Course>): void {
+    this.courses.pipe(take(1)).subscribe((courses) => {
+      this.courses.next(
+        courses.map(
           (cou) => cou.id === id
             ? new Course(
               cou.id,
               data.firstName || cou.firstName,
               data.Curso || cou.Curso,
               data.passedp || cou.passedp,
+
             )
             : cou
         )
@@ -47,15 +48,15 @@ export class CoursesService {
   }
 
   removeCourse(id: number): void {
-    this.Courses.pipe(take(1)).subscribe((Course) => {
-      this.Courses.next(Course.filter((cou) => cou.id !== id))
+    this.courses.pipe(take(1)).subscribe((Course) => {
+      this.courses.next(Course.filter((cou) => cou.id !== id))
     })
   }
 
   getCourseById(id: number): Observable<Course | null> {
-    return this.Course$.pipe(
+    return this.course$.pipe(
       take(1),
-      map((Course) => Course.find((cou) => cou.id === id) || null)
+      map((courses) => courses.find((cou) => cou.id === id) || null)
     )
   }
 }

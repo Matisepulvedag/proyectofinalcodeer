@@ -1,4 +1,3 @@
-
 export class Course{
   constructor(
    public id: number,
@@ -6,4 +5,4 @@ export class Course{
    public Curso: string,
    public passedp: boolean,
   ){}
-  }
+}

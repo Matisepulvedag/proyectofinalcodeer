@@ -11,11 +11,13 @@ import { Commision } from 'src/app/core/models/commision.model';
 })
 export class CommisionModalComponent {
   firstNameControl = new FormControl('', [Validators.required])
-  lastNameControl = new FormControl('', [Validators.required, Validators.email])
+  matterNameControl = new FormControl('', [Validators.required, Validators.email])
   CommisionForm = new FormGroup({
     firstName: this.firstNameControl,
-    lastName: this.lastNameControl,
+    matterName: this.matterNameControl,
   });
+
+
 
   constructor(
     private readonly dialogRef: DialogRef,
@@ -23,9 +25,9 @@ export class CommisionModalComponent {
   ) {
     if (data) {
       this.CommisionForm.patchValue(data);
+      this.CommisionForm.controls['matterName'].setValue(data.matter)
     }
   }
-
   close() {
     this.dialogRef.close()
   }

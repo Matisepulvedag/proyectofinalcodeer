@@ -1,9 +1,9 @@
 <div class="mb-3">
-  <button (click)="createCourse()" mat-flat-button color="primary">
+  <button (click)="CreateCourse()" mat-flat-button color="primary">
     Crear Curso
   </button>
 </div>
-<table mat-table [dataSource]="(Course | async) || []">
+<table mat-table [dataSource]="(courses | async) || []">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>No.</th>
     <td mat-cell *matCellDef="let element">{{ element.id }}</td>

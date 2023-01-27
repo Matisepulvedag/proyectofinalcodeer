@@ -11,41 +11,42 @@ import { CoursesService } from '../../services/course.service';
   styleUrls: ['./courses-page.component.scss']
 })
 export class CoursesPageComponent {
-
   displayedColumns = ['id', 'firstName', 'Curso', 'passedp', 'delete', 'edit', 'viewDetail'];
-  Course: Observable<Course[]> | undefined;
-   private destroyed$ = new Subject()
+  courses: Observable<Course[]>;
+  private destroyed$ = new Subject()
 
-   constructor(private readonly CoursesService: CoursesService, private readonly dialogService: MatDialog) {
-     this.Course = this.CoursesService.Course$;
-   }
+  constructor(private readonly CoursesService: CoursesService, private readonly dialogService: MatDialog) {
+    this.courses = this.CoursesService.course$;
+  }
 
-   ngOnDestroy(): void {
-     this.destroyed$.next(true)
-   }
+  ngOnDestroy(): void {
+    this.destroyed$.next(true)
+  }
 
-   editCourse(element: Course) {
-     const dialog = this.dialogService.open(CourseModalComponent, {
-       data: element
-     })
-     dialog.afterClosed().subscribe((data) => {
-       if (data) {
-         this.CoursesService.editCourse(element.id, data);
-       }
-     })
-   }
+  editCourse(element: Course) {
+    const dialog = this.dialogService.open(CourseModalComponent, {
+      data: element
+    })
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.CoursesService.EditCourse(element.id, data,);
+      }
+    })
+  }
 
-   createCourse() {
-     const dialog = this.dialogService.open(CourseModalComponent)
-     dialog.afterClosed().subscribe((data) => {
-       if (data) {
-         this.CoursesService.createCourse({  firstName: data.firstName, Curso: data.Curso,passedp: false });
-       }
-     })
-   }
+  CreateCourse(){
+    const dialog = this.dialogService.open(CourseModalComponent)
+    dialog.afterClosed().subscribe((data) => {
+      if (data) {
+        this.CoursesService.createCourse({ firstName: data.firstName, Curso: data.Curso,passedp: false });
 
-   deleteCourse(element: Course) {
-     this.CoursesService.removeCourse(element.id);
-   }
- }
+      }
+    })
+  }
+
+
+  deleteCourse(element: Course) {
+    this.CoursesService.removeCourse(element.id);
+  }
+}
 

@@ -1,9 +1,12 @@
-<h1>
+ <h1>
   <ng-container *ngIf="commision;else elseTemplate">
-    Detalle de: <b>{{ commision.firstName }} {{ commision.lastName }}</b>
+    Detalle de: <b> {{ commision.matter }}</b>
   </ng-container>
   <ng-template #elseTemplate>
     Estudiante no encontrado
   </ng-template>
 </h1>
+
+
+
 
