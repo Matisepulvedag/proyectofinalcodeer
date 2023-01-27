@@ -3,7 +3,10 @@ main {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(242, 142, 10);
+ /*  background-color: rgb(242, 142, 10); */
+ background: #8e0e00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8e0e00, #1f1c18); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8e0e00, #1f1c18); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
  /*  background-image: url("/src/assets/fondo.jpg"); */
   background-size: cover;
  /*  justify-content: center;
@@ -27,7 +30,7 @@ form{
   display: block;
   padding: 0.875rem 1rem;
   border-radius: 1.5rem;
-  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #eb0c0c;
+  box-shadow: 3px 3px 8px #ea0e0e, -3px -3px 8px #eb0c0c;
   cursor: pointer;
 }
 .form input {
@@ -41,4 +44,7 @@ form{
       rgba(0, 0, 0, 0.1);
   border: 0 none;
   background: #068ff1;
+}
+div{
+  background: #8e0e00; /* fallback for old browsers */
 }
