@@ -35,7 +35,7 @@ export class commisionService {
             ? new Commision(
               com.id,
               data.firstName || com.firstName,
-              data.matter || com.matter,
+              data.matter|| com.matter,
               data.active || com.active,
             )
             : com

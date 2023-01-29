@@ -14,7 +14,7 @@ export class CommisionModalComponent {
   matterNameControl = new FormControl('', [Validators.required, Validators.email])
   CommisionForm = new FormGroup({
     firstName: this.firstNameControl,
-    matterName: this.matterNameControl,
+    matter: this.matterNameControl,
   });
 
 
@@ -25,7 +25,7 @@ export class CommisionModalComponent {
   ) {
     if (data) {
       this.CommisionForm.patchValue(data);
-      this.CommisionForm.controls['matterName'].setValue(data.matter)
+      this.CommisionForm.controls['matter'].setValue(data.matter)
     }
   }
   close() {
