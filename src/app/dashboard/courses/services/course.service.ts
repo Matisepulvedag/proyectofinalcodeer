@@ -24,12 +24,12 @@ export class CoursesService {
       this.courses.next([
         ...courses,
 
-        new Course(lastId + 1,  newCourseData.firstName,newCourseData.Curso, true)
+        new Course(lastId + 1, newCourseData.firstName, newCourseData.Curso, true)
       ])
     })
   }
 
-  EditCourse(id: number, data: Partial<Course>): void {
+  editCourse(id: number, data: Partial<Course>): void {
     this.courses.pipe(take(1)).subscribe((courses) => {
       this.courses.next(
         courses.map(

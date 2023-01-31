@@ -29,17 +29,17 @@ export class CoursesPageComponent {
     })
     dialog.afterClosed().subscribe((data) => {
       if (data) {
-        this.CoursesService.EditCourse(element.id, data,);
+        this.CoursesService.editCourse(element.id, data,);
       }
     })
   }
 
-  CreateCourse(){
+  createCourse(){
     const dialog = this.dialogService.open(CourseModalComponent)
     dialog.afterClosed().subscribe((data) => {
       if (data) {
-        this.CoursesService.createCourse({ firstName: data.firstName, Curso: data.Curso,passedp: false });
-
+        this.CoursesService.createCourse({ firstName: data.firstName, Curso: data.Curso ,passedp: false });
+        console.log(data);
       }
     })
   }

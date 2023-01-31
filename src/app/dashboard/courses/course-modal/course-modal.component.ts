@@ -11,10 +11,10 @@ import { Course } from 'src/app/core/models/course.model';
 })
 export class CourseModalComponent {
   firstNameControl = new FormControl('', [Validators.required])
-  cursoNameControl = new FormControl('', [Validators.required])
+  CursoControl = new FormControl('', [Validators.required, Validators.email])
   courseForm = new FormGroup({
     firstName: this.firstNameControl,
-    curso: this.cursoNameControl,
+    Curso: this.CursoControl,
   });
 
   constructor(
@@ -23,7 +23,7 @@ export class CourseModalComponent {
   ) {
     if (data) {
       this.courseForm.patchValue(data);
-      this.courseForm.controls['curso'].setValue(data.Curso)
+      this.courseForm.controls['Curso'].setValue(data.Curso)
     }
   }
 
