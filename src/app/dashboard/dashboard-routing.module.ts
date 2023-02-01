@@ -30,6 +30,10 @@ const routes: Routes = [
         loadChildren: () => import('./users/users.module').then((module) => module.UsersModule)
       },
       {
+         path: 'notes',
+         loadChildren: () => import('./users/users.module').then((module) => module.UsersModule)
+      },
+      {
         path: 'my-profile',
         component: MyProfileComponent,
       }

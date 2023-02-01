@@ -11,6 +11,7 @@ import { PageWrapperComponent } from './layout/page-wrapper/page-wrapper.compone
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -18,6 +19,8 @@ import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
     PageWrapperComponent,
     HeaderComponent,
     NavMenuComponent,
+
+
   ],
   imports: [
     CommonModule,
