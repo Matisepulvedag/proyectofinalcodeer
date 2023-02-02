@@ -39,7 +39,6 @@ export class CoursesPageComponent {
     dialog.afterClosed().subscribe((data) => {
       if (data) {
         this.CoursesService.createCourse({ firstName: data.firstName, Curso: data.Curso ,passedp: false });
-        console.log(data);
       }
     })
   }

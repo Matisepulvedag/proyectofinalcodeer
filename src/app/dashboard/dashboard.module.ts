@@ -12,23 +12,23 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 
 
+
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    MyProfileComponent,
-    PageWrapperComponent,
-    HeaderComponent,
-    NavMenuComponent,
+    declarations: [
+        DashboardComponent,
+        MyProfileComponent,
+        PageWrapperComponent,
+        HeaderComponent,
+        NavMenuComponent,
+    ],
+    imports: [
+        CommonModule,
+        SharedModule,
+        ReactiveFormsModule,
+        MatSidenavModule,
+        DashboardRoutingModule,
+        MatToolbarModule,
 
-
-  ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    ReactiveFormsModule,
-    MatSidenavModule,
-    DashboardRoutingModule,
-    MatToolbarModule
-  ]
+    ]
 })
 export class DashboardModule { }

@@ -30,8 +30,8 @@ const routes: Routes = [
         loadChildren: () => import('./users/users.module').then((module) => module.UsersModule)
       },
       {
-         path: 'notes',
-         loadChildren: () => import('./users/users.module').then((module) => module.UsersModule)
+        path: 'notes',
+        loadChildren: () => import('./notes/notes.module').then((module) => module.NotesModule)
       },
       {
         path: 'my-profile',

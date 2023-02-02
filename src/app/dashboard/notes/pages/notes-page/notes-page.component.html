@@ -1,1 +1,54 @@
-<p>notes-page works!</p>
+ <div *ngIf="loading; else elseTemplate">
+ </div>
+<ng-template #elseTemplate>
+<div class="mb-3">
+  <button (click)="createNotes()" mat-flat-button color="primary">
+    Crear Nota
+  </button>
+</div>
+<table mat-table [dataSource]="notes">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="firtsname">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let element">{{ element.firstname }}</td>
+  </ng-container>
+  <ng-container matColumnDef="notes">
+    <th mat-header-cell *matHeaderCellDef>Notas</th>
+    <td mat-cell *matCellDef="let element">{{ element.notes }}</td>
+  </ng-container>
+  <ng-container matColumnDef="approved">
+    <th mat-header-cell *matHeaderCellDef>aprobo la materia</th>
+    <td mat-cell *matCellDef="let element">{{ element.approved }}</td>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let element">
+      <button (click)="editNotes()" mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="viewDetail">
+    <th mat-header-cell *matHeaderCellDef>Ver Detalle</th>
+    <td mat-cell *matCellDef="let element">
+      <button [routerLink]="element.id" mat-icon-button color="primary">
+        <mat-icon>visibility</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+    <td mat-cell *matCellDef="let element">
+      <button  mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+</ng-template>
+

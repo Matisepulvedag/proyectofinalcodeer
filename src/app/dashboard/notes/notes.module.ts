@@ -23,6 +23,7 @@ import { noteFeatureKey, reducer } from './store/note.reducer';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NotesRoutingModule,
     SharedModule,
     StoreModule.forFeature(noteFeatureKey, reducer),
     MatTableModule,

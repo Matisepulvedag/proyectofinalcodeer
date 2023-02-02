@@ -1,1 +1,19 @@
-<p>notes-modal works!</p>
+<h1 mat-dialog-title>Ingresar nota</h1>
+<div mat-dialog-content>
+  <form class="flex flex-column" [formGroup]="noteForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput [formControl]="firstnameControl">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>nota</mat-label>
+      <input matInput [formControl]="notesControl">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="noteForm.value" cdkFocusInitial>
+    Ok
+  </button>
+</div>
